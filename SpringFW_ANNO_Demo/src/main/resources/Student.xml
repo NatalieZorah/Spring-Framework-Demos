@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+    <context:component-scan base-package="org.example"/>
+
+    <bean id="student" class="org.example.Student" init-method="init" destroy-method="destroy">
+        <property name="id" value="0"/>
+        <property name="name" value="Natalie"/>
+        <property name="ph" ref="phone"/>
+        <property name="add" ref="address"/>
+    </bean>
+
+    <bean id="phone" class="org.example.Phone" init-method="init" destroy-method="destroy">
+        <constructor-arg index="0" value="(789)456-1230"/>
+    </bean>
+
+    <bean id="address" class="org.example.Address" init-method="init" destroy-method="destroy">
+        <constructor-arg index="0" value="Seattle"/>
+        <constructor-arg index="1" value="Washington"/>
+        <constructor-arg index="2" value="United States"/>
+        <constructor-arg index="3" value="98101"/>
+    </bean>
+
+</beans>
